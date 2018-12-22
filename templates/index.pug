@@ -1,0 +1,79 @@
+doctype html
+html
+    head
+        title WebSocket--Primus--Fastify
+        script(src='/primus/primus.js')
+        //- script(src='clientws.js')
+
+        //- script.
+        //-     //- alert('Hello')
+        //-     var output = document.getElementById('form__submit')
+        //-     , echo = document.getElementById('echo');
+  
+        //-     var primus = new Primus();
+
+        //-     console.log(primus)
+        //-     console.log(output)
+
+
+
+        //- script
+        //-      include clientws.js
+
+
+    body
+        h1 Primus WS example
+
+        ul#output_label 
+
+        form#form__submit(action="/")
+            //- label(for='message') Name:
+            input#input__message(type='text', placeholder='Write some message' name='message') 
+            br
+            button(type='submit') Send it to the server!
+
+
+
+
+    script.
+            //- alert('Hello')
+            const 
+                form = document.getElementById('form__submit'),
+                input = document.getElementById('input__message'),
+                output = document.getElementById('output_label');
+  
+            const primus = new Primus();
+
+            console.log(primus)
+            console.log(input.value)
+            console.log(form)
+
+            form.addEventListener("submit", e => {
+                e.preventDefault();
+                console.log('Submitting')
+                console.log(input.value)
+
+                // Send data to the server
+                primus.write({message: input.value})
+
+            });
+
+            primus.on('data', data => {
+                console.log('HERE')
+                const li = document.createElement("LI"); 
+                const strong = document.createElement("STRONG"); 
+                const textnode = document.createTextNode( data.data);
+                const linode = document.createTextNode( 'This data comes from the server to the client with the message ');
+
+                strong.appendChild(textnode)
+                li.appendChild(linode)
+                li.appendChild(strong)
+                //- console.log(data.data)
+                //- li.value = data.data;
+                output.appendChild(li);
+            });
+
+            //- output.onsubmit( e => {
+            //-     e.preventDefault();
+            //-     console.log('Submitting')
+            //- })
