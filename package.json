@@ -1,0 +1,27 @@
+{
+  "name": "fastifyprimusws",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "fastify": "^1.13.3",
+    "point-of-view": "^2.1.0",
+    "primus": "^7.3.2",
+    "pug": "^2.0.3",
+    "ws": "^6.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexVoloshinA/primuswsfastify.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexVoloshinA/primuswsfastify/issues"
+  },
+  "homepage": "https://github.com/AlexVoloshinA/primuswsfastify#readme"
+}
